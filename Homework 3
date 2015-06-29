@@ -1,0 +1,182 @@
+Question 1:  What are the different Bug priorities?
+Andswer:    There are five kinds of diffrent bug priorities.
+            1: Blocker (Highest)
+            2: Critical(High)
+            3: Major  (Medium)
+            4: Minor  (Low)
+            5: Trivial (Lowest)
+
+Question 2:  What is a bug life cycle?
+Answer:      Bug Life cycle is the journey of a defect from its identification to its closure.
+             phases of bug life cycle.
+             
+                  ___________
+                 |          |
+    Rejected-----|   New    | 
+                 |__________|
+                      |
+                  ___________
+                 |          |
+                 |   Open   | ------
+                 |__________|      |
+                      |            | Reopen
+                 ____________      |
+                 |          |      |
+                 |  Fixed   | ------
+                 |__________|
+                      |
+                 ____________
+                 |          |
+                 |  Closed  | 
+                 |__________|
+                      
+                      
+Question 3:  What do you include in a bug report?
+Answer:      Bug Rerport is the documentation which explains the whole information about the specific bug found.
+             Bug Report:
+             1: Bug ID (Auto Generated)
+             2: Summary about the bug 
+             3: Project information
+             4: Priority
+                  a: Blocket(Highest)
+                  b: Critical(High)
+                  c: Major (Medium)
+                  d: Minor (Low)
+                  e: Trivial (lowest)
+              5: Description 
+                  a: Steps to reproduce
+                  b: Current Result
+                  c: Expected Result
+              6: Asginee (Developer)
+              7: Assigner (QA)
+              8: Verifier
+              9: Local verb (Languages on demand)
+              10: Screenshots
+              11: Test Environment
+              
+  Question 4:  What do you do if you log a defect and the developer says he wont fix it?
+  Answer:     Fisrt of all we should try to find out is that a valid bug or not.if yes then try again to explain situation
+              to the DEVELOPER that its aa blocker/critical or any bug. if still he is saying not to fix that. then go and ask 
+              to the PROJECT MANAGER if he also not agrees with you and you still found its a valid bug then talk to the 
+              PRODUCT MANAGER.
+              
+  Question 5:   What steps do you take after you find a bug in production?
+  Answer:       Deploy a single version of code to all environments, so that all testing is done on the same version of code 
+                that is deployed to production. If the single version needs to do something differently in different 
+                environments, do that by making that something configurable and changing configuration (environment variables, 
+                configuration files, database data, etc.) in different environments, not the code.
+
+                Make development and production environments as much alike as possible: use the same or a similar OS, 
+                use the same version of the language runtime and libraries, etc. Some projects develop on VMs so that 
+                they can have the exact same environment in development and production.
+
+                Completely automate deployment so there is no opportunity for manual errors to introduce bugs.
+                
+                Eliminate the hardware or platform as a cause
+                
+
+Question 7:  What is STLC? Explain with a block diagram?
+Answer:     STLC: Software Test Life Cycle Specifies the various stages of software development.
+            
+            
+            
+                  _____________                                                _______________
+                 | Requirement |                                               |   System    |
+                 |  Analysis   |-----------------------------------------------|  Testing    |
+                 |_____________|                                               |_____________|
+                       \                                                      /
+                        \                                                    /
+                      _____________                                     _______________
+                      |Higl level |                                     | Integration |
+                      |  Design   |-------------------------------------|   Testing   |
+                      |___________|                                     |_____________|
+                             \                                         /
+                              \                                      /
+                          ______________                      ________________
+                          |  Low Level |                      |     Unit     |
+                          |   Design   |----------------------|    Testing   |
+                          |____________|                      |______________|
+                                        \                    /
+                                         \                 /    
+                                            ______________
+                                            |            |
+                                            |   Coding   | 
+                                            |____________|  
+                                            
+            Left side of the diagram is SDLC (software development life cycle) & Right side of the diagram is 
+            STLC (software testing life cycle)
+            The entire figure is V-Model.
+            
+            STLC : 
+                 _____________   
+                 | Requirement |                                    
+                 |  Analysis   |
+                 |_____________| 
+                              ______________   
+                              |    Test    |                                    
+                              |  Planning  |
+                              |____________| 
+                                          _____________   
+                                          | Test Case  |                                    
+                                          | Development|
+                                          |____________| 
+                                                      _____________   
+                                                      |Environment |                                    
+                                                      |    Setup   |
+                                                      |____________| 
+                                                                  _____________   
+                                                                  |    Test    |                                    
+                                                                  |  Execution |
+                                                                  |____________| 
+                                                                              _____________   
+                                                                              | Test Cycle |                                    
+                                                                              |   Clouser  |
+                                                                              |____________| 
+                                                                              
+          1: Requirement Analysis:
+             During this phase, test team studies the requirements from a testing point of view to identify the 
+             testable requirements. The QA team may interact with various stakeholders to understand the 
+             requirements in detail. Requirements could be either Functional  or Non Functional.
+        
+          2: Test Planning:
+             This phase is also called Test Strategy phase. Typically , in this stage, a Senior QA manager will 
+             determine effort and cost estimates for the project and would prepare and finalize the Test Plan.  
+         
+          3: Test Case Development
+             This phase involves creation, verification and rework of test cases & test scripts. Test data 
+            is identified/created and is reviewed and then reworked as well.
+         
+          4: Test Environment Setup
+             Test environment decides the software and hardware conditions under which a work product is tested. 
+             Test environment set-up is one of the critical aspects of testing process and can be done in parallel 
+             with Test Case Development Stage. 
+          
+          5: Test Execution:
+             During this phase test team will carry out the testing based on the test plans and the test cases 
+             prepared. Bugs will be reported back to the development team for correction and retesting will be performed.
+        
+          6: Test Cycle Closure
+             Testing team will meet , discuss and analyze testing artifacts to identify strategies that have to be 
+             implemented in future, taking lessons from the current test cycle. The idea is to remove the process 
+             bottlenecks for future test cycles and share best practices for any similar projects in future.
+             
+             
+Question 8:  If you open a web page of your test application and the page keeps loading but never displays the full page 
+             how do you go about checking where the problem is?
+Answer:      when user faced this kind of issue there might be given probabilities.
+              1. If face issue  like this try to refresh the page.
+              2: if problem still occurs then  there might some cookies/cache in the temp storage of the system so try
+                 to clear cookies and cache.
+              3: if still same issue then try to restart the browser.
+              4: if still same issue then there must be some issue in browser try to change the browser.
+              5: if still same issue then there might be some issue with the website. check your url is the link correct?
+              5: if still same issure then there might be some issue with the coding which put the website in the loop.
+              6: there must be problem in linking of the website to the domain.
+              7: there must be problem with the server of the website.which not allows the domain to load/access the pages on site.
+              8: check the internet connection.
+              9: there must be problem with loading plugins if plugins required to load the page.
+              10: there must be issue with the system.
+            
+
+
+            
