@@ -78,61 +78,23 @@ Answer:      Bug Rerport is the documentation which explains the whole informati
 Question 7:  What is STLC? Explain with a block diagram?
 Answer:     STLC: Software Test Life Cycle Specifies the various stages of software development.
             
+                 ______________
+                 |  Developer |
+                 |____________|        MY SQL/DATABASE
+                       |                     |
+                 ______|_______        ______|______        ____________       ____________
+                 | Requirement|        |Functional | merge  |          |       |          |
+                 |____________|------->| Testing   |------->|Regression|------>|Production|
+                       |               |___________|        |__________|       |__________|
+                       |                     |                   |
+                 ______|______               |                   |
+                 | Test plan |              JIRA          Load Testing Tool
+                 | Test Cases|              QTP
+                 |___________|           SELENIUM
             
             
-                  _____________                                                _______________
-                 | Requirement |                                               |   System    |
-                 |  Analysis   |-----------------------------------------------|  Testing    |
-                 |_____________|                                               |_____________|
-                       \                                                      /
-                        \                                                    /
-                      _____________                                     _______________
-                      |Higl level |                                     | Integration |
-                      |  Design   |-------------------------------------|   Testing   |
-                      |___________|                                     |_____________|
-                             \                                         /
-                              \                                      /
-                          ______________                      ________________
-                          |  Low Level |                      |     Unit     |
-                          |   Design   |----------------------|    Testing   |
-                          |____________|                      |______________|
-                                        \                    /
-                                         \                 /    
-                                            ______________
-                                            |            |
-                                            |   Coding   | 
-                                            |____________|  
-                                            
-            Left side of the diagram is SDLC (software development life cycle) & Right side of the diagram is 
-            STLC (software testing life cycle)
-            The entire figure is V-Model.
             
-            STLC : 
-                 _____________   
-                 | Requirement |                                    
-                 |  Analysis   |
-                 |_____________| 
-                              ______________   
-                              |    Test    |                                    
-                              |  Planning  |
-                              |____________| 
-                                          _____________   
-                                          | Test Case  |                                    
-                                          | Development|
-                                          |____________| 
-                                                      _____________   
-                                                      |Environment |                                    
-                                                      |    Setup   |
-                                                      |____________| 
-                                                                  _____________   
-                                                                  |    Test    |                                    
-                                                                  |  Execution |
-                                                                  |____________| 
-                                                                              _____________   
-                                                                              | Test Cycle |                                    
-                                                                              |   Clouser  |
-                                                                              |____________| 
-                                                                              
+            
           1: Requirement Analysis:
              During this phase, test team studies the requirements from a testing point of view to identify the 
              testable requirements. The QA team may interact with various stakeholders to understand the 
