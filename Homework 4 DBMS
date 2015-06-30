@@ -1,0 +1,185 @@
+Question 1: Explain the difference between Left and Right Join with sample queries?
+Answer:  Diffrence Between Left Join and Right Join
+         Example:
+        
+                              Table 1. emp	                Table 2. dept
+                        +------+-------+---------+         +-----------+-------------+
+                        | eid  | ename | deptid  |         |  deptid   |   deptname  |
+                        +------+-------+---------+	   +-----------+-------------+
+                        |   11 | Tom   |     21  |	   |    21     |  Production |
+                        |   12 | Jack  |     22  | 	   |    22     |  Direction  |
+                        |   13 | David |     23  |         |    23     |   Editing   |
+                        |   14 | Marc  |     25  |         |    24     |Choreography |
+                        +------+-------+---------+	   +-----------+-------------+
+      
+         in this example we have two diffrent tables in a database. both tables have a common coloumn "deptid"
+         so we are going to run query on these tables to understand the diffrence between right join and left join.
+        
+         LEFT JOIN:
+        
+         Query for LEFT JOIN: select * from emp left JOIN dept ON emmp.deptid = dept.deptid;
+                              OUTPUT:
+                              +------+-------+--------+--------+------------+
+                              | eid  | ename | deptid | deptid | deptname   |
+                              +------+-------+--------+--------+------------+
+                              |   11 | Tom   |     21 |     21 | Production |
+                              |   12 | Jack  |     22 |     22 | Direction  |
+                              |   13 | David |     23 |     23 | Editing    |
+                              |   14 | Marc  |     25 |   NULL | NULL       |
+                              +------+-------+--------+--------+------------+
+      
+         This query will return all of the records in the left table  regardless if any of those records have a match in 
+         the right table. it will also return any matching records from the right table.
+         it will return null for the entries which are not matching.
+        
+         RIGHT JOIN:
+        
+         Query for RIGHT JOIN: select * from emmp right JOIN dept ON emmp.deptid = dept.deptid;
+                              OUTPUT: 
+                              +------+-------+--------+--------+--------------+
+                              | eid  | ename | deptid | deptid | deptname     |
+                              +------+-------+--------+--------+--------------+
+                              |   11 | Tom   |     21 |     21 | Production   |
+                              |   12 | Jack  |     22 |     22 | Direction    |
+                              |   13 | David |     23 |     23 | Editing      |
+                              | NULL | NULL  |   NULL |     24 | Choreography |
+                              +------+-------+--------+--------+--------------+
+                              
+         This query will return all of the records in the right table regardless if any of those records have a 
+         match in the left table.It will also return any matching records from the left table.it will return the 
+         null value for the entries which does not matches.
+                    
+                    
+  
+Question 2: Find the name of the person who has max salary in a given table?
+Answer:     To find the name of the person who has max salary we have use the the query
+              Query:
+              
+              select name from (table)
+              order by salary desc limit 1;
+   
+Question 3: Explain the difference between group by and order by clause?
+Answer:     
+                                  Example: Table shopping
+                              +----------+-------------+------------+
+                              | Cust_id  |     item    |total_price | 
+                              +------+-------+---------+------------+
+                              |     1    |   balloon   |      1     |
+                              |     2    |    apple    |      3     |
+                              |     2    |    apple    |      4     |
+                              |     1    |    pillow   |     25     |
+                              |     1    | plastic_bag |      1     |
+                              +----------+-------------+------------+
+                              
+                              
+              Order By:
+                 Query:    SELECT * FROM shopping ORDER BY total_price;
+                 
+                          OUTPUT:
+                          
+                              +----------+-------------+------------+
+                              | Cust_id  |     item    |total_price | 
+                              +------+-------+---------+------------+
+                              |     1    |    balloon  |      1     |
+                              |     3    | plastic bag |      1     |
+                              |     2    |    apple    |      3     |
+                              |     1    |    apple    |      4     |
+                              |     1    |    pillow   |     25     |
+                              +----------+-------------+------------+
+                        
+                        ORDER BY alters the order in which items are returned.      
+                        as you can see the fiels have been ordered by the price. The default order is ascending. 
+                        If you want to specify how the data is ordered, write either ASC or DESC at the end of 
+                        your query.   
+                        
+              
+              Group By:
+                 Query:    SELECT item, SUM(total_price) FROM shopping GROUP BY item;
+                
+                          OUTPUT:
+                          
+                              +------------+-------------------+
+                              |    Item    |  SUM(total_price) | 
+                              +------------+-------------------+
+                              |    apple    |        7         |
+                              |   balloon   |        1         |
+                              |    pillow   |        25        |
+                              | plastic bag |        1         |
+                              +-------------+------------------+
+                        
+                        GROUP BY will aggregate records by the specified columns which allows you to perform 
+                        aggregation functions on non-grouped columns (such as SUM, COUNT, AVG, etc).
+                        The way you have to understand the query is that we compute the sum of all amounts for
+                        each item. This is expressed by the GROUP BY item. Now, if we would try to do 
+                        this for each product. This would correspond to the total money gained per product. 
+                        
+                        
+Question 4: Explain the difference between where and having?                      
+Answer:  Though the HAVING clause specifies a condition that is similar to the purpose of a WHERE clause
+         the two clauses are not interchangeable. Listed below are some differences to help distinguish between the two:
+
+        1. The WHERE clause specifies the criteria which individual records must meet to be selcted by a query. It can be 
+        used without the GROUP BY clause. The HAVING clause cannot be used without the GROUP BY clause.
+        2. The WHERE clause selects rows before grouping. The HAVING clause selects rows after grouping.
+        3. The WHERE clause cannot contain aggregate functions. The HAVING clause can contain aggregate functions.
+
+        for Example: if for an "Select" statement we use the "where" clause then the the result based on the "where" 
+        condition results and then we can use "group by" clause to arrange in some order, Now if we want to impose the 
+        condition on that group then we use "having" clause. 
+
+        The main reason for using WHERE clause is to select rows that are to be included in the query. For example, assume 
+        table Test.Suppose I want the names, account numbers, and balance due of all customers from California and 
+        Los Angles. Since STATE is one of the fields in the record format, I can use WHERE to select those customers.                           
+                       Code:
+                                SELECT cusnum, lstnam, init
+                                FROM Test
+                                WHERE state IN ('CA', 'LA')
+
+
+                              +---------+------------+------+--------+
+                              | Cusnum  |     lstnam | init | baldue | 
+                              +--------+----------- -+------+--------+
+                              |  938472 |    Jhon    | G  K |  37.00 |
+                              |  938485 |    Mark    | J  A |3987.50 |
+                              |  593029 |    lilly   | E  D |  25.00 |
+                              +---------+------------+------+--------+
+                 
+                 Suppose I want the total amount due from customers by state. 
+                 In that case, I would need to use the GROUP BY clause to build an aggregate query.
+                 
+                        Code:
+                                SELECT state,SUM(baldue)
+                                FROM Test
+                                GROUP BY state
+                                ORDER BY state
+                 
+                 
+                              +------------+-------------------+
+                              |    State    |    SUM(baldue)   | 
+                              +------------+-------------------+
+                              |      CA     |      250.00      |
+                              |      CO     |      58.75       |
+                              |      GA     |      3987.50     |
+                              |      MN     |      510.00      |
+                              |      NY     |      589.50      |
+                              |      TX     |      62.00       |
+                              |      VT     |      439.00      |
+                              |      WY     |      0.00        |
+                              +-------------+------------------+
+                 
+Question 5: Give the syntax of Update query?
+Answer:     UPDATE TableName SET FieldName = Value WHERE Id = AnotherValue;
+
+            Example:
+            
+            UPDATE Customers
+            SET ContactName='abc', City='xyz'
+            WHERE CustomerName='efg';
+            
+            
+                 
+                 
+                 
+                 
+                 
+  
